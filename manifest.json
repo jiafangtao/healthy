@@ -1,0 +1,6 @@
+{
+    "name": "Healthy",
+    "version": "1.0",
+    "description": "Checking web site health status",
+    "manifest_version": 2
+}
