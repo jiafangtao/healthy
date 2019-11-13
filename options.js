@@ -16,3 +16,11 @@ function addSite(name, url) {
 document.getElementById('btnAdd').onclick = function() {
   addSite(getSiteName(), getSiteUrl());
 };
+
+function getSitesData () {
+  chrome.storage.local.get(['sites'], function(result) {
+    console.log(result['sites']);
+  });
+}
+
+document.getElementById('btnGet').onclick = getSitesData;
