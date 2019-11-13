@@ -2,6 +2,7 @@
     "name": "Healthy",
     "version": "1.0",
     "description": "Checking web site health status",
+    "options_page": "options.html",
     "background": {
         "scripts": [
             "background.js"

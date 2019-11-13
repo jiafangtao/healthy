@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .button {
+            padding-left: 15px;
+            padding-right: 15px;
+            height: 30px;
+            width: 50px;
+            outline: none;
+            margin: 10px;
+        }
+
+        .url {
+            width: 300px;
+        }
+
+        div.center {
+            margin: auto;
+            margin-top: 20px;
+            width: 60%;
+            padding: 20px 20px;
+            border: 1px solid gray;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <h3>Monitoring </h3>
+    </div>
+    <div class="center">
+        <h3>Add web sites</h3>
+        <form>
+            <label for="name">Name</label>
+            <input type="input" id="name" />
+            <label for="url">URL</label>
+            <input type="input" id="url" class="url" placeholder="http://" />
+            <input type="button" class="button" id="btnAdd" value="Add" />
+        </form>
+    </div>
+</body>
+<script src="options.js"></script>
+
+</html>
