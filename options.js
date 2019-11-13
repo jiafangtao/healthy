@@ -8,12 +8,11 @@ function getSiteUrl() {
 }
 
 function addSite(name, url) {
-  //
+  chrome.storage.local.set({'sites': {'name': name, 'url': url}}, function() {
+    console.log('Save successfully for ' + name + ' ' + url);
+  });
 }
 
 document.getElementById('btnAdd').onclick = function() {
-  console.log('Name is ' + getSiteName());
-  console.log('URL is ' + getSiteUrl());
-
   addSite(getSiteName(), getSiteUrl());
 };

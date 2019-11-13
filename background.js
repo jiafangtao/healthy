@@ -1,5 +1,7 @@
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({url: 'https://www.google.com'}, function() {
-    console.log('Set url to google.com.');
+  console.info('calling in onInstalled');
+
+  chrome.storage.local.get(['sites'], function(result) {
+    console.log('Value currently is ' + result.key);
   });
 });
