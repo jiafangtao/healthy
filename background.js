@@ -20,10 +20,11 @@ chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.local.get(['sites'], function(result) {
     console.log('Value currently is ' + result.key);
   });
-
-  setInterval(function() {
-    check_url('http://www.baidu.com', function(url, status) {
-      console.log('Checking ' + url + ' returns ' + status);
-    });
-  }, 2000);
 });
+
+
+setInterval(function() {
+  check_url('http://www.baidu.com', function(url, status) {
+    console.log('Checking ' + url + ' returns ' + status);
+  });
+}, 2000);
