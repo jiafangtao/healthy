@@ -24,7 +24,7 @@ chrome.runtime.onInstalled.addListener(function() {
 
 
 setInterval(function() {
-  check_url('http://www.baidu.com', function(url, status) {
+  check_url('https://translation.infraworks360.autodesk.com/health', function(url, status) {
     console.log('Checking ' + url + ' returns ' + status);
   });
 }, 2000);

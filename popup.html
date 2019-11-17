@@ -33,11 +33,16 @@
 </head>
 
 <body>
-    <li><button class="green light"></button><label class="floating">url 1</label></li>
-    <li><button class="yellow light"></button><label class="floating">url 2</label></li>
-    <li><button class="red light"></button><label class="floating">url 3</label></li>
-
-    <button id="btnRefresh">Refresh</button>
+    <ul>
+        <li><button class="green light"></button><a href="http://site1/" target="_blank">Site 1</a></li>
+        <li><button class="green light"></button><a href="http://site2/" target="_blank">Site 2</a></li>
+        <li><button class="red light"></button><a href="http://site3/" target="_blank">Site 3</a></li>
+    </ul>
+    <ul id="placeholder"></ul>
+    
     <script src="popup.js"></script>
+    <script id="template" type="text/template">
+        <li><button class="gray light"></button><a href="#" target="_blank">#url</a></li>
+    </script>
 </body>
 </html>

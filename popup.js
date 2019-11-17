@@ -1,22 +1,35 @@
-console.log("now in popup.js");
 
 function buildUI (sitesData) {
-    divName = document.createElement('div')
-    divName.innerText = sitesData.name;
-    document.body.appendChild(divName);
+    window.sitesData = sitesData;
+    if (!sitesData) {
+        console.log("No sites data is configured yet.");
+        span = document.createElement('span');
+        span.innerText = "Go to option page to add sites.";
+        document.appendChild(span);
+        return;
+    }
 
-    divUrl = document.createElement('div');
-    divUrl.innerText = sitesData.url;
-    document.body.appendChild(divUrl);
+    sitesData.forEach(site => {
+        li = document.createElement('li');
 
-    //document.body.appendChild("<div>" + sitesData['name'] + "</div>");
-    //document.body.appendChild("<div>" + sitesData['url'] + "</div>");
+        button = document.createElement('button');
+        button.className = 'gray light';
+    
+        link = document.createElement('a');
+        link.href = site.url;
+        link.target = "_blank";
+        link.innerText = site.name;
+
+        li.appendChild(button);
+        li.appendChild(link);
+        document.getElementById("placeholder").appendChild(li);
+    });
 }
 
-function refresh() {
+function refreshPopup() {
     chrome.storage.local.get(['sites'], function(result) {
         if (result) {
-            console.log('value is ' + result['sites']);
+            console.log('value is ' + JSON.stringify(result['sites']));
     
             buildUI(result['sites']);
         }
@@ -26,6 +39,12 @@ function refresh() {
     });
 }
 
-//refresh();
+function cleanAll() {
+    document.getElementById('placeholder').innerText = "";
+}
 
-document.getElementById('btnRefresh').onclick = refresh;
+window.onload = function() {
+    console.log("window.onload ...");
+    cleanAll();
+    refreshPopup();
+}
