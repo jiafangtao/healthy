@@ -29,6 +29,10 @@
         .floating {
             float: left;
         }
+
+        .hidden {
+            visibility: hidden;
+        }
     </style>
 </head>
 
@@ -39,6 +43,17 @@
         <li><button class="red light"></button><a href="http://site3/" target="_blank">Site 3</a></li>
     </ul>
     <ul id="placeholder"></ul>
+    <button onclick="onButtonMoreClicked">More...</button>
+    <div id="siteManager" class="hidden">
+        <form id="newSiteForm">
+            <label for="newSiteName">Site Name</label>
+            <input id='newSiteName' />
+            <br />
+            <label for="newUrl">Url</label>
+            <input id='newUrl' />
+        </form>
+    </div>
+    
     
     <script src="popup.js"></script>
     <script id="template" type="text/template">

@@ -43,6 +43,16 @@ function cleanAll() {
     document.getElementById('placeholder').innerText = "";
 }
 
+function onFormSubmit() {
+    console.info("submitting the form");
+}
+
+function onButtonMoreClicked() {
+    console.info("button 'More' is clicked");
+    const form = document.getElementById("newSiteForm");
+    
+}
+
 window.onload = function() {
     console.log("window.onload ...");
     cleanAll();

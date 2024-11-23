@@ -15,16 +15,15 @@ function check_url(url, callback) {
 }
 
 chrome.runtime.onInstalled.addListener(function() {
-  console.info('calling in onInstalled');
-
   chrome.storage.local.get(['sites'], function(result) {
     console.log('Value currently is ' + result.key);
   });
 });
 
+const timeout = 2000;
 
 setInterval(function() {
-  check_url('https://translation.infraworks360.autodesk.com/health', function(url, status) {
+  check_url('https://httpbin.org/get', function(url, status) {
     console.log('Checking ' + url + ' returns ' + status);
   });
-}, 2000);
+}, timeout);
