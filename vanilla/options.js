@@ -10,6 +10,7 @@ function getSiteUrl() {
 function refreshSitesList() {
   chrome.storage.local.get(['sites'], function(result) {
     if (result && result['sites']) {
+      document.getElementById('siteList').innerText = "";
       result['sites'].forEach(site => {
         li = document.createElement('li');
         li.innerText = site.name + ' ' + site.url;
@@ -42,3 +43,9 @@ document.getElementById('btnAdd').onclick = function() {
     refreshSitesList();
   });
 };
+
+
+window.onload = function() {
+    console.log("window.onload ...");
+    refreshSitesList();
+}

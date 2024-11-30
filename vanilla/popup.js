@@ -1,11 +1,41 @@
+/**
+ * @param {String} HTML representing a single node (which might be an Element,
+                   a text node, or a comment).
+ * @return {Node}
+ */
+function htmlToNode(html) {
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    const nNodes = template.content.childNodes.length;
+    if (nNodes !== 1) {
+        throw new Error(
+            `html parameter must represent a single node; got ${nNodes}. ` +
+            'Note that leading or trailing spaces around an element in your ' +
+            'HTML, like " <img/> ", get parsed as text nodes neighbouring ' +
+            'the element; call .trim() on your input to avoid this.'
+        );
+    }
+    return template.content.firstChild;
+}
+
+
+/**
+ * @param {String} HTML representing any number of sibling nodes
+ * @return {NodeList} 
+ */
+function htmlToNodes(html) {
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.childNodes;
+}
+
 
 function buildUI (sitesData) {
     window.sitesData = sitesData;
     if (!sitesData) {
         console.log("No sites data is configured yet.");
-        span = document.createElement('span');
-        span.innerText = "Go to option page to add sites.";
-        document.appendChild(span);
+        const warning = htmlToNode('<div><div class="warning bar">&#x26A0; No sites added yet. </div><span>Go to <a href="options.html"><strong>option page</strong></a> to add sites.</span></div>');
+        document.body.appendChild(warning);
         return;
     }
 

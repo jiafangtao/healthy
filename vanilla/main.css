@@ -1,0 +1,11 @@
+.warning {
+    background-color: yellow;
+    font-size: medium;
+}
+
+.bar {
+    min-height: 30px;
+    min-width: 200px;
+    padding: 5px 5px;
+    margin-bottom: 10px;
+}
